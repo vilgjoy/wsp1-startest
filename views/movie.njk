@@ -1,0 +1,13 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<main class="wrapper">
+    <ul>
+        <li>
+            <h1>{{ movie.title }}</h1>
+            <p>{{ movie.director }}</p>
+            <p>{{ movie.year }}</p>
+        </li>
+    </ul>
+</main>
+{% endblock %}

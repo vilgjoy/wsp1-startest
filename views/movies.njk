@@ -1,0 +1,19 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<main class="wrapper">
+    <form action="/movies" method="GET">
+        <input type="text" name="q" placeholder="Search for a movie..">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for movie in movies %}
+        <li>
+            <h1><a href="/movies/{{ movies.id }}">{{ movie.title }}</a></h1>
+            <p>{{ movie.director }}</p>
+            <p>{{ movie.year }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock %}
