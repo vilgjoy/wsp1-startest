@@ -1,17 +1,25 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-<main class="wrapper">
-    <form action="/movies" method="GET">
-        <input type="text" name="q" placeholder="Search for a movie..">
+<main class="wrapper movies-page">
+    <form action="/movies" method="GET" class="search-form">
+        <input type="text" name="q" placeholder="Search for a movie..." value="{{ q or '' }}">
         <button type="submit">Search</button>
     </form>
-    <ul>
+
+    <ul class="movie-list">
         {% for movie in movies %}
-        <li>
-            <h1><a href="/movies/{{ movies.id }}">{{ movie.title }}</a></h1>
-            <p>{{ movie.director }}</p>
-            <p>{{ movie.year }}</p>
+        <li class="movie-item">
+            <div class="movie-rank">#{{ loop.index }}</div>
+            <div class="movie-info">
+                <h2 class="movie-title">
+                    <a href="/movies/{{ movie.id }}">{{ movie.title }}</a>
+                </h2>
+                <p class="movie-meta">
+                    <span class="movie-year">{{ movie.year }}</span> • 
+                    <span class="movie-director">{{ movie.director }}</span>
+                </p>
+            </div>
         </li>
         {% endfor %}
     </ul>
