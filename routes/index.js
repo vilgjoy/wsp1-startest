@@ -11,6 +11,13 @@ router.get("/", (req, res) => {
     })
 })
 
+router.get("/story", (req, res) => {
+    res.render("story.njk", {
+        title: "Story Time",
+        story: "Once upon a time in a land far, far away..."
+    })
+})
+
 router.get("/about", (req, res) => {
     res.render("about.njk", {
         title: "About",
